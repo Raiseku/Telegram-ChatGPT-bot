@@ -14,9 +14,6 @@ openai.api_key = config.openai_key
 # Configure Telegram client
 client = TelegramClient(config.session_name_bot, config.API_ID, config.API_HASH).start(bot_token=config.BOT_TOKEN)
 
-# Define function to check if a button is clicked
-def press_event(user_id):
-    return events.CallbackQuery(func=lambda e: e.sender_id == user_id)
 
 # Define button templates
 keyboard_stop = [[Button.inline("Stop and reset conversation", b"stop")]]
