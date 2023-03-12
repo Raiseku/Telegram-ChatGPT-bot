@@ -63,7 +63,7 @@ async def handle_start_command(event):
     """
 
     SENDER = event.sender_id
-    prompt = "Hello 🤖! I'm Telegram ChatGPT Bot, an AI-powered Telegram chatbot ready to assist you with any question you have. Simply ask me anything, and I'll provide you with an answer using advanced language models and machine learning algorithms."
+    prompt = "Hello 🤖! I'm Telegram-ChatGPT-Bot, an AI-powered Telegram chatbot ready to assist you with any question you have. Simply ask me anything, and I'll provide you with an answer using advanced language models and machine learning algorithms."
     try:
         # Greet the user
         await client.send_message(SENDER, prompt)
@@ -76,7 +76,7 @@ async def handle_start_command(event):
             # Keep asking for input and generating responses until the conversation times out or the user clicks the stop button
             while True:
                 # Prompt the user for input
-                prompt = "Please provide your input to TelegramChatGPT Bot:"
+                prompt = "Please provide your input to Telegram-ChatGPT-Bot"
                 user_input = await send_question_and_retrieve_result(prompt, conv, keyboard_stop)
                 
                 # Check if the user clicked the stop button
@@ -98,7 +98,7 @@ async def handle_start_command(event):
                     chat_completion = openai.ChatCompletion.create(
                         model=config.model_engine, # ID of the model to use.
                         messages=history, # The messages to generate chat completions for. This must be a list of dicts!
-                        max_tokens=100, # The maximum number of tokens to generate in the completion.
+                        max_tokens=500, # The maximum number of tokens to generate in the completion.
                         n=1, # How many completions to generate for each prompt.
                         temperature=0.1 # Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
                     )
@@ -127,6 +127,7 @@ async def handle_start_command(event):
 
     except Exception as e: 
         # Something went wrong
+        print(e)
         await client.send_message(SENDER, "<b>Conversation ended✔️</b>\nSomething went wrong. Please type /start to begin a new conversation.", parse_mode='html')
         return
 
