@@ -33,7 +33,7 @@ The bot requires an OpenAI API key and Telegram Bot API credentials to function.
 To start the bot, run the following command in your terminal:
 
 ```
-python Telegram-GPT-bot.py
+python Telegram-ChatGPT-bot.py
 ```
 
 This will start the bot and wait for user queries. Once the bot is running, you can interact with it by sending messages to it in Telegram.
