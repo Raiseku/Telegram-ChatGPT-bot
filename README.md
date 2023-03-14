@@ -28,6 +28,8 @@ The bot requires an OpenAI API key and Telegram Bot API credentials to function.
 - **`BOT_TOKEN`**: Your Telegram bot token
 - **`session_name_bot`**: A name for the Telegram client session
 
+You can obtain a Telegram API ID and hash by following the instructions **[here](https://core.telegram.org/api/obtaining_api_id)**. To obtain a bot token, you can talk to **[BotFather](https://telegram.me/botfather)** on Telegram. To obtain the OpenAi key go **[here](https://platform.openai.com/account/api-keys)**.
+
 ## **Usage**
 
 To start the bot, run the following command in your terminal:
