@@ -35,8 +35,17 @@ async def send_question_and_retrieve_result(prompt, conv, keyboard):
     # Send the prompt with the keyboard to the user and store the sent message object
     message = await conv.send_message(prompt, buttons = keyboard)
     
+    loop = asyncio.get_event_loop()
+    
+    task1 = loop.create_task(
+        conv.wait_event(events.CallbackQuery())
+    )
+    task2 = loop.create_task(
+        conv.get_response()
+    )
+
     # Wait for the user to respond or tap a button using asyncio.wait()
-    done, _ = await asyncio.wait({conv.wait_event(events.CallbackQuery()), conv.get_response()}, return_when=asyncio.FIRST_COMPLETED)
+    done, _ = await asyncio.wait({task1, task2}, return_when=asyncio.FIRST_COMPLETED)
     
     # Retrieve the result of the completed coroutine and delete the sent message
     result = done.pop().result()
