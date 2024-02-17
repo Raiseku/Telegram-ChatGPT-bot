@@ -1,5 +1,7 @@
 # **Telegram ChatGPT Bot**
 
+Check the video explanation here: https://youtu.be/ERGUgZqkrkk
+
 This code provides a Python implementation of a Telegram Chatbot based on the OpenAI GPT-3 model. This bot uses the Telethon Python library to interact with the Telegram Bot API and the OpenAI API to generate responses to user queries.
 
 ## **Installation**
